@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+
+    <h2 style="text-align:center;font-family: 'Source Sans Pro', sans-serif;">To see your results press f12 and open the console.</h2>
+
+    <script>
+
+    let computerScore = 0;
+
+    let playerScore = 0;
+
+    function computerPlay () {
+
+        let arrPlay = ["rock", "paper", "scissors"];
+
+        let randomPlay = Math.floor (Math.random() * arrPlay.length);
+
+        return arrPlay [randomPlay];
+
+    }
+
+    function playerPlay () {
+
+        let selection = prompt ('Rock, paper, scissors?')
+
+        selection.toLowerCase ();
+
+        return selection;
+
+    }
+
+    function singleRound () {
+
+        let computerP = computerPlay ();
+        
+        let playerP = playerPlay ();
+
+        if (computerP === playerP) {
+
+            return console.log ("It's a tie!");
+
+        } else if
+
+        ((computerP === "rock" && playerP === "paper") || 
+        (computerP === "paper" && playerP === "scissors") ||
+        (computerP === "scissors" && playerP === "rock"))  {
+
+            playerScore++;
+
+            return console.log ("You win!");
+
+        } else if
+
+        ((computerP === "rock" && playerP === "scissors") ||
+        (computerP === "paper" && playerP === "rock") ||
+        (computerP === "scissors" && playerP === "paper")) {
+
+            computerScore++;
+
+            return console.log ("You lose!");
+
+        } else {
+
+            return console.log ("Something went wrong??" + computerP + playerP);
+
+        }
+
+    }
+
+    function game () {
+
+        do {
+
+            if (playerScore === 5) {
+
+            console.log ('Congratulations, you won!');
+
+            break;
+
+            } else if (computerScore === 5) {
+
+            console.log ('You lost against the computer!');
+
+            break;
+
+            } else {
+
+            singleRound ();
+
+            }
+
+        } while (playerScore !== 5 || computerScore !== 5)
+
+    }
+
+    game ();
+    
+    </script>
+    
+</body>
+</html>              
