@@ -4,108 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet"> 
-    <title>Document</title>
+    <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Rock, paper, scissors!</title>
 </head>
 <body>
 
-    <h2 style="text-align:center;font-family: 'Source Sans Pro', sans-serif;">To see your results press f12 and open the console.</h2>
+    <main class="container">
 
-    <script>
+        <div>
+            <h1>Yes, ANOTHER rock, paper, scissors</h1>
+        </div>
 
-    let computerScore = 0;
+        <div>
+            <h3>Best of 5 wins!!</h3>
+        </div>
 
-    let playerScore = 0;
+        <div>
+            <h2>Choose an option</h2>
+        </div>
 
-    function computerPlay () {
+        <div id="game-container">
 
-        let arrPlay = ["rock", "paper", "scissors"];
+            <hr>
 
-        let randomPlay = Math.floor (Math.random() * arrPlay.length);
+            <div id="buttons">
 
-        return arrPlay [randomPlay];
+                <div id="rock"></div>
+                <div id="paper"></div>
+                <div id="scissor"></div>
 
-    }
+            </div>
 
-    function playerPlay () {
+            <hr>
 
-        let selection = prompt ('Rock, paper, scissors?')
+            <div id="score">
+                <div>
+                    <strong>Your score:</strong>
+                    <div id="player-score">0</div>
+                </div>
+                <div>
+                    <strong>Puter score:</strong>
+                    <div id="computer-score">0</div>
+                </div>
 
-        selection.toLowerCase ();
+            </div>
 
-        return selection;
+            <div id="outcome">
+            </div>
 
-    }
+        </div>
 
-    function singleRound () {
-
-        let computerP = computerPlay ();
-        
-        let playerP = playerPlay ();
-
-        if (computerP === playerP) {
-
-            return console.log ("It's a tie!");
-
-        } else if
-
-        ((computerP === "rock" && playerP === "paper") || 
-        (computerP === "paper" && playerP === "scissors") ||
-        (computerP === "scissors" && playerP === "rock"))  {
-
-            playerScore++;
-
-            return console.log ("You win!");
-
-        } else if
-
-        ((computerP === "rock" && playerP === "scissors") ||
-        (computerP === "paper" && playerP === "rock") ||
-        (computerP === "scissors" && playerP === "paper")) {
-
-            computerScore++;
-
-            return console.log ("You lose!");
-
-        } else {
-
-            return console.log ("Something went wrong??" + computerP + playerP);
-
-        }
-
-    }
-
-    function game () {
-
-        do {
-
-            if (playerScore === 5) {
-
-            console.log ('Congratulations, you won!');
-
-            break;
-
-            } else if (computerScore === 5) {
-
-            console.log ('You lost against the computer!');
-
-            break;
-
-            } else {
-
-            singleRound ();
-
-            }
-
-        } while (playerScore !== 5 || computerScore !== 5)
-
-    }
-
-    game ();
-    
-    </script>
-    
+    </main>
 </body>
 </html>              
